@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('login.urls')),
     url(r'^main/', main_view.main, name='main'),
+     url(r'^login/', login_view.login, name='login'),
     #url(r'^songSuggest', include('songSuggest.urls')),
 ]
