@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from login import views as login_view
+from accounts import views as accounts_view
 from main import views as main_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('login.urls')),
+    url(r'^', include('accounts.urls')),
     url(r'^main/', main_view.main, name='main'),
-     url(r'^login/', login_view.login, name='login'),
+     url(r'^accounts/', accounts_view.accounts, name='accounts'),
     #url(r'^songSuggest', include('songSuggest.urls')),
 ]
