@@ -1,13 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class User(models.Model):
-	name = models.CharField(max_length = 50)
-	password = models.CharField(max_length = 10)
-	admin = models.BooleanField()
+# class User(models.Model):
+# 	name = models.CharField(max_length = 50)
+# 	password = models.CharField(max_length = 10)
+# 	admin = models.BooleanField()
 
-	def __str__(self):
-		return str(self.id)
+# 	def __str__(self):
+# 		return str(self.id)
 
 class Suggestion(models.Model):
 	voters = models.ManyToManyField(User, related_name='voters', through='Vote')
@@ -16,7 +17,7 @@ class Suggestion(models.Model):
 	category = models.CharField(max_length = 20)
 	commentary = models.TextField()
 	points = models.IntegerField()
-	user = models.ForeignKey(User, related_name='user')
+	owner = models.ForeignKey(User, related_name='owner')
 
 	def __str__(self):
 		return str(self.id)

@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from login import views as login_view
+from main import views as main_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('login.urls'))
+    url(r'^', include('login.urls')),
+    url(r'^main/', main_view.main, name='main'),
+    #url(r'^songSuggest', include('songSuggest.urls')),
 ]
